@@ -1,0 +1,73 @@
+.submenu{
+	display: none;
+	background-color:#03b8b9;
+	color: white;
+	position: absolute;
+//	margin-left: -30px;
+	margin: 10px 0px;
+	left: 0px;
+	right: 0px;
+	width: 100%;
+	padding-bottom: 20px;
+	overflow: auto;
+	padding-top: 0px;
+	border-bottom: 1px solid black;
+	box-shadow: 0px 20px 30px rgba(0,0,0,0.2);
+	z-index:5;
+}
+.submenu a{
+	text-align: left;
+	display: block;
+	padding: 5px 20px;
+	
+	font-size: 0.9em;
+	color: white;
+}
+.mini{
+	position: absolute;
+	display: none;
+	background-color:#03b8b9;
+	color: white;
+	margin-left: -30px;
+	padding: 20px;
+	border-bottom: 1px solid black;
+	box-shadow: 0px 20px 30px rgba(0,0,0,0.2);
+}
+.link li:hover .submenu{
+	display: block;
+}
+.link li:hover .mini{
+	display: block;
+	color:#bbb;
+	transition: 0.3s ease;
+}
+
+.submenu a:hover{
+	background-color:#008384;
+	transition: 0.3s ease;
+}
+.ad a{
+	text-align: center;
+}
+.nor a{
+	text-align: right;
+}
+
+@media screen and (max-width:600px){
+	.nor a{
+		text-align: center;
+	}
+	.mini{
+		all:unset;
+		width: 100%;
+		left: 0px;
+		right: 0px;
+		margin: auto;
+		position: absolute;
+		display: none;
+		background-color:#03b8b9;
+		color: white;
+		padding:30px 0px;
+		text-align: center;
+	}
+}

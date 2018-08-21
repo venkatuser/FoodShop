@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 13 Aug, 2018 9:49:57 AM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="config.Product_info" table="PRODUCT_INFO">
+        <id name="produc_id" type="int">
+            <column name="PRODUCT_ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="product_name" type="java.lang.String">
+            <column name="PRODUCT_NAME" />
+        </property>
+        <property name="product_amount" type="java.lang.String">
+            <column name="PRODUCT_AMOUNT" />
+        </property>
+        <property name="product_description" type="java.lang.String">
+            <column name="PRODUCT_DESCRIPTION" />
+        </property>
+        <property name="product_image" type="java.lang.String">
+            <column name="PRODUCT_IMAGE" />
+        </property>
+        <property name="product_availability" type="java.lang.String">
+            <column name="PRODUCT_AVAILABILITY" />
+        </property>
+        <property name="category_type" type="java.lang.String">
+            <column name="CATEGORY_TYPE" />
+        </property>
+    </class>
+</hibernate-mapping>

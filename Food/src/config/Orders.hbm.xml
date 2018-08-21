@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 18 Aug, 2018 11:58:37 AM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="config.Orders" table="ORDERS">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="user_id" type="int">
+            <column name="USER_ID" />
+        </property>
+        <property name="product_id" type="int">
+            <column name="PRODUCT_ID" />
+        </property>
+        <property name="quantity" type="int">
+            <column name="QUANTITY" />
+        </property>
+        <property name="Product_name" type="java.lang.String">
+            <column name="PRODUCT_NAME" />
+        </property>
+        <property name="order_status" type="java.lang.String">
+            <column name="ORDER_STATUS" />
+        </property>
+        <property name="date" type="java.lang.String">
+            <column name="DATE" />
+        </property>
+        <property name="time" type="java.lang.String">
+            <column name="TIME" />
+        </property>
+        <property name="address" type="java.lang.String">
+            <column name="ADDRESS" />
+        </property>
+        <property name="city" type="java.lang.String">
+            <column name="CITY" />
+        </property>
+        <property name="pin" type="java.lang.String">
+            <column name="PIN" />
+        </property>
+        <property name="mobile" type="java.lang.String">
+            <column name="MOBILE" />
+        </property>
+        <property name="total_price" type="double">
+            <column name="TOTAL_PRICE" />
+        </property>
+    </class>
+</hibernate-mapping>
