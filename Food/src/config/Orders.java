@@ -1,11 +1,49 @@
 package config;
 
+import javax.persistence.*;
 
-
-
+@Entity
+@Table(name = "orders")
 public class Orders {
-	int id,user_id,product_id,quantity;
-	String Product_name,order_status,date,time,address,city,pin,mobile;
+	
+	@Id 
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
+	int id;
+	
+	@Column(name = "user_id")
+	int user_id;
+	
+	@Column(name = "product_id")
+	int product_id;
+	
+	@Column(name = "quantity")
+	int quantity;
+	
+	@Column(name = "Product_name")
+	String Product_name;
+	
+	@Column(name = "order_status")
+	String order_status;
+	
+	@Column(name = "date")
+	String date;
+	
+	@Column(name = "time")
+	String time;
+	
+	@Column(name = "address")
+	String address;
+	
+	@Column(name = "City")
+	String city;
+	
+	@Column(name = "pin")
+	String pin;
+	
+	@Column(name = "Mobile")
+	String mobile;
+	
 	public String getAddress() {
 		return address;
 	}

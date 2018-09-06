@@ -25,7 +25,7 @@ public class Login {
 	Session sess=new Configuration().configure("hibernate.cfg.xml").buildSessionFactory().openSession();
 	List<user_login> list;
 	Criteria c;
-	Transaction transaction=null;
+	Transaction transaction=sess.beginTransaction();
 	public String getName() {
 		return Username;
 	}
@@ -43,7 +43,7 @@ public class Login {
 		boolean b=false;
 		String Password;
 		try {
-		transaction=sess.beginTransaction();
+			
 		Password=PBKDF2.getPassword(pass);
 		Query<user_login> q=sess.createQuery("update user_login set password=:pass where email=:email");
 		q.setParameter("pass", Password);
@@ -61,7 +61,7 @@ public class Login {
 		boolean b=false;
 		try {
 			c=sess.createCriteria(user_login.class);
-			c.add(Restrictions.eq("email", email));
+			c.add(Restrictions.eq("Email", email));
 			list=c.list();
 			b=list.iterator().hasNext();
 			
@@ -74,7 +74,7 @@ public class Login {
 		boolean b=false;
 		String Password;
 		try{
-			transaction=sess.beginTransaction();
+			
 			ulog=new user_login();
 			ulog.setUsername(uname);
 			ulog.setEmail(email);
@@ -96,7 +96,7 @@ public class Login {
 		boolean b=false;
 		
 		try{
-			transaction=sess.beginTransaction();
+			
 			c=sess.createCriteria(user_login.class);
 			c.add(Restrictions.eq("username", uname));
 			String Password=PBKDF2.getPassword(pass);

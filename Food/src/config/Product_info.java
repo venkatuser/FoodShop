@@ -1,8 +1,35 @@
 package config;
 
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "product_info")
 public class Product_info {
-	private String product_name,product_amount,product_description,product_image,product_availability,category_type;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "product_id")
 	int produc_id;
+	
+	@Column(name = "product_name")
+	String product_name;
+	
+	@Column(name = "product_amount")
+	String product_amount;
+	
+	@Column(name = "product_description")
+	String product_description;
+	
+	@Column(name = "product_image")
+	String product_image;
+	
+	@Column(name = "product_availability")
+	String product_availability;
+	
+	@Column(name = "category_type")
+	String category_type;
+	
 	public String getProduct_name() {
 		return product_name;
 	}

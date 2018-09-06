@@ -7,8 +7,8 @@
   <property name="hibernate.connection.password">root</property>
   <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/Food</property>
   <property name="hibernate.connection.username">root</property>
-  <mapping resource="config/user_login.hbm.xml"/>
-  <mapping resource="config/Product_info.hbm.xml"/>
-  <mapping resource="config/Orders.hbm.xml"/>
+  <mapping class="config.user_login"/>
+  <mapping class="config.Product_info"/>
+  <mapping class="config.Orders"/>
  </session-factory>
 </hibernate-configuration>
