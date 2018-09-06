@@ -9,7 +9,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.criterion.Restrictions;
-
+import org.hibernate.query.Query;
 
 import config.user_login;
 import hashing.PBKDF2;
@@ -23,7 +23,9 @@ public class Login {
 	public static String Username,mobile,email,address,pincode,city;
 	private static int id;
 	Session sess=new Configuration().configure("hibernate.cfg.xml").buildSessionFactory().openSession();
-	Transaction transaction=sess.beginTransaction();
+	List<user_login> list;
+	Criteria c;
+	Transaction transaction=null;
 	public String getName() {
 		return Username;
 	}
@@ -36,11 +38,43 @@ public class Login {
 	public String getMail() {
 		return email;
 	}
+	
+	public boolean updatePassword(String pass,String email) {
+		boolean b=false;
+		String Password;
+		try {
+		transaction=sess.beginTransaction();
+		Password=PBKDF2.getPassword(pass);
+		Query<user_login> q=sess.createQuery("update user_login set password=:pass where email=:email");
+		q.setParameter("pass", Password);
+		q.setParameter("email", email);		
+		int n=q.executeUpdate();
+		transaction.commit();
+		b=n>0;
+		}catch (Exception e) {
+			System.out.println(e);
+		}
+		return b;
+	}
+	
+	public boolean checkEmail(String email) {
+		boolean b=false;
+		try {
+			c=sess.createCriteria(user_login.class);
+			c.add(Restrictions.eq("email", email));
+			list=c.list();
+			b=list.iterator().hasNext();
+			
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		return b;
+	}
 	public boolean insertUserData(String uname,String email,String pass) {
 		boolean b=false;
 		String Password;
 		try{
-			
+			transaction=sess.beginTransaction();
 			ulog=new user_login();
 			ulog.setUsername(uname);
 			ulog.setEmail(email);
@@ -62,12 +96,12 @@ public class Login {
 		boolean b=false;
 		
 		try{
-			
-			Criteria c=sess.createCriteria(user_login.class);
+			transaction=sess.beginTransaction();
+			c=sess.createCriteria(user_login.class);
 			c.add(Restrictions.eq("username", uname));
 			String Password=PBKDF2.getPassword(pass);
 			c.add(Restrictions.eq("password",Password));
-			List<user_login> list=c.list();
+			list=c.list();
 			if(list.iterator().hasNext()) {
 				ulog=list.get(0);
 				Username=ulog.getName();

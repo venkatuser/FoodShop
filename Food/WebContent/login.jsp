@@ -113,12 +113,12 @@
 							<h2>Login</h2>
 							<br>
 							<form action="" method="post" autocomplete="off">
-							<input type="text" class="txt" name="uname" placeholder="User Name" required="">
-							<br><br><br>
-							<input type="password" class="txt" name="pass" placeholder="password" required="">
-							<br><br><a href="#">Forgot password</a><br><br>
-							
-							<input type="submit" name="sub_l" class="btn" value="Login">
+								<input type="text" class="txt" name="uname" placeholder="User Name" required="">
+								<br><br><br>
+								<input type="password" class="txt" name="pass" placeholder="password" required="">
+								<br><br><a href="forgot.jsp">Forgot password</a><br><br>
+								
+								<input type="submit" name="sub_l" class="btn" value="Login">
 							</form>
 						</div>
 					</div>

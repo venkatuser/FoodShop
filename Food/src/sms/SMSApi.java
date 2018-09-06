@@ -6,9 +6,14 @@ import java.net.URLConnection;
 import java.net.URL; 
 
 
-public class SMSApi {
-
-    public boolean sendSMS(String number,String msg) {
+ public class SMSApi {
+	 public static void main(String[] args) {
+			SMSApi ob=new SMSApi();
+			ob.sendSMS("9626844250", "haiiii");
+		}
+	 
+	 
+   public boolean sendSMS(String number,String msg) {
         // TODO code application logic here
         boolean b=false;
     	try {
@@ -34,5 +39,6 @@ public class SMSApi {
         }
         return b;
     }
+   
 }
                            
